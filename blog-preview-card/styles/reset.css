@@ -67,8 +67,9 @@ h6 {
 	text-wrap: balance;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
+/* Remove default link styles and ensure proper color inheritance */
+a {
+	text-decoration: none;
 	text-decoration-skip-ink: auto;
 	color: currentColor;
 }
