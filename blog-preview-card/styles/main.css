@@ -130,7 +130,7 @@ body {
 .card__author {
 	display: flex;
 	align-items: center;
-	gap: var(--space-100);
+	gap: var(--space-150);
 }
 
 .card__author-image {
