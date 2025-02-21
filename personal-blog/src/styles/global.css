@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@utility container {
+	@apply mx-auto max-w-[744px] pt-4 md:pt-5 pb-0 md:pb-5;
+}
+
+@utility text-1 {
+	@apply font-extrabold text-[2.5rem] tracking-[-1px] leading-[130%];
+}
+
+@utility text-2 {
+	@apply font-extrabold text-[2rem] tracking-[-0.5px] leading-[130%];
+}
