@@ -1,25 +1,66 @@
 ---
+import { getCollection } from "astro:content"
 import Welcome from "../components/Welcome.astro"
 import Layout from "../layouts/Layout.astro"
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = await getCollection("posts")
+console.log(posts)
 ---
 
 <Layout>
-	<h1 class="text-2">Hi, I'm Paulina</h1>
-	<div class="prose">
-		<p>
-			I'm on a journey to become a front-end web developer. I love building
-			little projects, trying out new coding techniques, and sharing what I
-			learn along the way. When I'm not at my desk, you'll find me reading,
-			hiking through the mountains, or challenging myself on rock-climbing
-			walls.
-		</p>
-		<p>
-			I started this blog to document my progress, keep myself accountable, and
-			hopefully inspire anyone else who's learning to code. Welcome to my corner
-			of the internet, and thanks for stopping by!
-		</p>
-	</div>
+	<section class="section">
+		<h1
+			class="text-2 mb-6 bg-gradient-to-t from-blue-500 from-25% to-transparent to-25% inline">
+			Hi, I'm Paulina 👋
+		</h1>
+		<div class="prose mb-6">
+			<p>
+				I'm on a journey to become a front-end web developer. I love building
+				little projects, trying out new coding techniques, and sharing what I
+				learn along the way. When I'm not at my desk, you'll find me reading,
+				hiking through the mountains, or challenging myself on rock-climbing
+				walls.
+			</p>
+			<p>
+				I started this blog to document my progress, keep myself accountable,
+				and hopefully inspire anyone else who's learning to code. Welcome to my
+				corner of the internet, and thanks for stopping by!
+			</p>
+		</div>
+		<div class="flex items-center gap-3">
+			<button
+				class="flex justify-center items-center w-10 h-10 rounded-lg border border-neutral-200 bg-white"
+				>X</button
+			>
+			<button
+				class="flex justify-center items-center w-10 h-10 rounded-lg border border-neutral-200 bg-white"
+				>Y</button
+			>
+			<button
+				class="flex justify-center items-center w-10 h-10 rounded-lg border border-neutral-200 bg-white"
+				>Z</button
+			>
+			<button
+				class="flex justify-center items-center w-10 h-10 rounded-lg border border-neutral-200 bg-white"
+				>Q</button
+			>
+		</div>
+	</section>
+	<section class="section">
+		<div class="flex items-baseline gap-2 mb-8">
+			<h2 class="text-2">Latest Articles</h2>
+			<div class="w-10 h-[3px] bg-blue-500"></div>
+		</div>
+		<ul class="space-y-6">
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/posts/${post.data.slug}`} class="text-5 mb-2 block">
+							{post.data.title}
+						</a>
+						<div class="text-8 italic">{post.data.publishedAt}</div>
+					</li>
+				))
+			}
+		</ul>
+	</section>
 </Layout>

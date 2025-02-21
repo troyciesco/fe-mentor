@@ -5,10 +5,28 @@
 	@apply mx-auto max-w-[744px] pt-4 md:pt-5 pb-0 md:pb-5;
 }
 
+@utility section {
+	@apply border-b py-12 border-neutral-200;
+}
+
 @utility text-1 {
 	@apply font-extrabold text-[2.5rem] tracking-[-1px] leading-[130%];
 }
 
 @utility text-2 {
 	@apply font-extrabold text-[2rem] tracking-[-0.5px] leading-[130%];
+}
+
+@utility text-5 {
+	@apply font-semibold text-xl leading-[130%] tracking-[-0.5px];
+}
+
+@utility text-8 {
+	@apply leading-[130%] tracking-[-0.2px];
+}
+
+@theme {
+	--color-neutral-100: oklch(98.31% 0.0034 67.78);
+
+	--color-blue-500: oklch(82.77% 0.0889 242.56);
 }
