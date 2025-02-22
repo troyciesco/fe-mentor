@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import Layout from "@/layouts/Layout.astro"
+import { format } from "date-fns"
 const posts = await getCollection("posts")
 ---
 
@@ -17,7 +18,9 @@ const posts = await getCollection("posts")
 						<a href={`/blog/${post.data.slug}`} class="text-5 mb-2 block">
 							{post.data.title}
 						</a>
-						<div class="text-8 italic">{post.data.publishedAt}</div>
+						<div class="text-8 italic">
+							{format(post.data.publishedAt, "MMMM dd, yyyy")}
+						</div>
 					</li>
 				))
 			}

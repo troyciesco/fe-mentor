@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import Layout from "@/layouts/Layout.astro"
 import { render } from "astro:content"
+import { format } from "date-fns"
 
 export async function getStaticPaths() {
 	const posts = await getCollection("posts")
@@ -19,7 +20,9 @@ const { Content } = await render(post)
 	<section class="section">
 		<div class="mb-3">
 			<h1 class="text-2 mb-3">{post.data.title}</h1>
-			<div class="text-8 italic">Published {post.data.publishedAt}</div>
+			<div class="text-8 italic">
+				Published {format(post.data.publishedAt, "MMMM dd, yyyy")}
+			</div>
 		</div>
 		<div class="prose max-w-fit">
 			<Content />
