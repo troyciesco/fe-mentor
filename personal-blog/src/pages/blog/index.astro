@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "@/layouts/Layout.astro"
+const posts = await getCollection("posts")
+---
+
+<Layout>
+	<section class="section">
+		<div class="flex items-baseline gap-2 mb-8">
+			<h1 class="text-2">My Articles</h1>
+			<div class="w-10 h-[3px] bg-blue-500"></div>
+		</div>
+		<ul class="space-y-6">
+			{
+				posts.map((post) => (
+					<li>
+						<a href={`/blog/${post.data.slug}`} class="text-5 mb-2 block">
+							{post.data.title}
+						</a>
+						<div class="text-8 italic">{post.data.publishedAt}</div>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</Layout>
