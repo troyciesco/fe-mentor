@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import avatar from "@/assets/avatar.jpg"
+---
+
+<nav
+	class="border border-neutral-200 p-[6px] flex justify-between rounded-[10px] bg-white">
+	<div class="w-10 h-10 rounded-[10px]">
+		<Image
+			src={avatar}
+			alt="avatar"
+			width={40}
+			height={40}
+			class="rounded-[10px]"
+		/>
+	</div>
+	<div class="flex gap-5 items-center">
+		<ul class="flex gap-6 items-center">
+			<li><a href="/">Home</a></li>
+			<li><a href="/blog">Blog</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/newsletter">Newsletter</a></li>
+		</ul>
+		<button
+			class="flex justify-center items-center w-10 h-10 rounded-lg border border-neutral-200 bg-neutral-100">
+			<Icon name="sun" />
+		</button>
+	</div>
+</nav>
